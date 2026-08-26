@@ -1,0 +1,104 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  line-height: 1.5;
+  @apply transition-colors duration-200;
+}
+
+html.dark {
+  color-scheme: dark;
+}
+
+html.dark body {
+  @apply bg-wow-ink text-wow-surface;
+}
+
+html.dark input,
+html.dark textarea,
+html.dark select {
+  @apply bg-wow-muted/20 text-wow-surface;
+}
+
+html.dark .border-wow-line {
+  @apply border-wow-muted/30;
+}
+
+html.dark .bg-wow-surface-soft {
+  @apply bg-wow-muted/10;
+}
+
+html.dark .bg-wow-surface {
+  @apply bg-wow-ink/50;
+}
+
+html.dark .text-wow-muted {
+  @apply text-wow-surface/60;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+input,
+select,
+button {
+  font-family: inherit;
+}
+
+details > summary {
+  list-style: none;
+  cursor: pointer;
+}
+
+details > summary::-webkit-details-marker {
+  display: none;
+}
+
+:focus-visible {
+  outline: 2px solid rgb(85, 15, 237);
+  outline-offset: 2px;
+}
+
+::selection {
+  background: rgba(85, 15, 237, 0.15);
+}
+
+@keyframes fadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(12px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
