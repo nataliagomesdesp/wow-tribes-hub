@@ -49,9 +49,14 @@ export const translations = {
       },
       {
         year: '2026',
-        title: { ES: '21 tribes en WoW', PT: '21 tribes no WoW', EN: '21 tribes in WoW' } as Entry,
+        title: { ES: '21 tribes*', PT: '21 tribes*', EN: '21 tribes*' } as Entry,
       },
     ],
+    timelineFootnote: {
+      ES: '(*) Incluye Product, UX, IT, Business Partners + Key Contributors',
+      PT: '(*) Inclui Product, UX, IT, Business Partners + Key Contributors',
+      EN: '(*) Including Product, UX, IT, Business Partners + Key Contributors',
+    } as Entry,
     cards: {
       try: {
         ES: 'Experimenta nuevas ideas constantemente',

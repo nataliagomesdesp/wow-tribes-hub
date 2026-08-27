@@ -1,32 +1,12 @@
 'use client'
 
-import { useEffect, useRef, useState } from 'react'
 import { useLang } from '@/lib/i18n/LangContext'
 import { translations } from '@/lib/i18n/translations'
 
+const DRIVE_VIDEO_ID = '11GUcs1Pm1uRLkUAfFvClwb7skAi7uoxM'
+
 export default function Historia() {
   const { lang, t } = useLang()
-  const videoRef = useRef<HTMLVideoElement>(null)
-  const [videoUrl, setVideoUrl] = useState<string | null>(null)
-  const [videoLoading, setVideoLoading] = useState(false)
-  const [playing, setPlaying] = useState(false)
-
-  useEffect(() => {
-    return () => {
-      if (videoUrl) URL.revokeObjectURL(videoUrl)
-    }
-  }, [videoUrl])
-
-  const handlePlay = async () => {
-    if (!videoUrl) {
-      setVideoLoading(true)
-      const res = await fetch('/videos/intro-wow.mp4')
-      const blob = await res.blob()
-      setVideoUrl(URL.createObjectURL(blob))
-      setVideoLoading(false)
-    }
-    setPlaying(true)
-  }
 
   return (
     <div>
@@ -38,40 +18,16 @@ export default function Historia() {
         <p className="text-wow-muted">{t('historia.subtitle')}</p>
       </div>
 
-      {/* VIDEO PLAYER */}
-      <div className="bg-wow-ink rounded-lg aspect-video max-w-2xl mb-12 relative overflow-hidden">
-        {videoUrl && (
-          <video
-            ref={videoRef}
-            src={videoUrl}
-            autoPlay
-            controls={playing}
-            onPause={() => setPlaying(false)}
-            onEnded={() => setPlaying(false)}
-            className="w-full h-full object-contain bg-wow-ink"
-          />
-        )}
-        {!playing && (
-          <button
-            onClick={handlePlay}
-            disabled={videoLoading}
-            className="absolute inset-0 flex items-center justify-center w-full h-full"
-            aria-label="Play"
-          >
-            <div className="absolute inset-0 bg-gradient-to-br from-wow-purple-deep to-wow-purple opacity-80" />
-            <span className="relative z-10 w-20 h-20 bg-wow-gold rounded-full flex items-center justify-center hover:scale-110 transition">
-              {videoLoading ? (
-                <span className="w-6 h-6 border-2 border-wow-purple-deep border-t-transparent rounded-full animate-spin" />
-              ) : (
-                <span className="text-2xl ml-1">▶</span>
-              )}
-            </span>
-            <div className="absolute bottom-4 left-4 text-white font-semibold text-sm z-10">
-              {t('historia.videoCaption')}
-            </div>
-          </button>
-        )}
+      {/* VIDEO PLAYER (Google Drive embed) */}
+      <div className="bg-wow-ink rounded-lg aspect-video max-w-2xl mb-2 overflow-hidden">
+        <iframe
+          src={`https://drive.google.com/file/d/${DRIVE_VIDEO_ID}/preview`}
+          className="w-full h-full"
+          allow="autoplay"
+          allowFullScreen
+        />
       </div>
+      <p className="text-sm text-wow-muted max-w-2xl mb-12">{t('historia.videoCaption')}</p>
 
       {/* TIMELINE */}
       <div className="mb-12">
@@ -90,6 +46,7 @@ export default function Historia() {
             ))}
           </div>
         </div>
+        <p className="text-xs text-wow-muted mt-2">{t('historia.timelineFootnote')}</p>
       </div>
 
       {/* 3 CARDS: TRY, LEARN, REPEAT */}
