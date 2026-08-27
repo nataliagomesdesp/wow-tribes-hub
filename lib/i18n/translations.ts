@@ -89,6 +89,187 @@ export const translations = {
       EN: 'Go to WoW OKR HUB',
     } as Entry,
   },
+  ceremonies: {
+    title: { ES: 'WoW + New Management Model (NMM) | Ceremonies', PT: 'WoW + New Management Model (NMM) | Ceremonies', EN: 'WoW + New Management Model (NMM) | Ceremonies' } as Entry,
+    subtitle: {
+      ES: 'Los rituales que mantienen alineados al Comité, la Tribu y el Squad, y cómo se conectan entre sí.',
+      PT: 'Os rituais que mantêm alinhados o Comitê, a Tribo e o Squad, e como eles se conectam entre si.',
+      EN: 'The rituals that keep the Committee, the Tribe, and the Squad aligned, and how they connect to each other.',
+    } as Entry,
+    lanes: {
+      nmm: { ES: 'New Management Model (NMM)', PT: 'New Management Model (NMM)', EN: 'New Management Model (NMM)' } as Entry,
+      tribe: { ES: 'Tribu', PT: 'Tribo', EN: 'Tribe' } as Entry,
+      squad: { ES: 'Squad', PT: 'Squad', EN: 'Squad' } as Entry,
+    },
+    workingCycleLabel: { ES: 'Working Cycle', PT: 'Working Cycle', EN: 'Working Cycle' } as Entry,
+    tableHeaders: {
+      ceremony: { ES: 'Ceremonia', PT: 'Cerimônia', EN: 'Ceremony' } as Entry,
+      participants: { ES: 'Participantes', PT: 'Participantes', EN: 'Participants' } as Entry,
+      content: { ES: 'Contenido', PT: 'Conteúdo', EN: 'Content' } as Entry,
+      details: { ES: 'Detalles', PT: 'Detalhes', EN: 'Details' } as Entry,
+    },
+    slackChannelsLinkLabel: {
+      ES: 'lista completa de canales',
+      PT: 'lista completa de canais',
+      EN: 'complete channels list',
+    } as Entry,
+    items: [
+      {
+        id: 'committee-mrm',
+        name: 'Committee MRM',
+        lane: 'nmm',
+        participants: {
+          ES: 'Miembros de la reunión MRM',
+          PT: 'Membros da reunião MRM',
+          EN: 'MRM Meeting members',
+        } as Entry,
+        content: [
+          { ES: 'FCAs propuestas para OKRs amarillo/rojo', PT: 'FCAs propostas para OKRs amarelo/vermelho', EN: 'FCAs proposed for OKRs yellow/red' } as Entry,
+          { ES: 'Actualizaciones de estado de contexto y progreso', PT: 'Atualizações de status de contexto e progresso', EN: 'Context status and progress updates' } as Entry,
+        ],
+        details: {
+          ES: 'Alinear al Comité sobre el estado del país y solicitudes.',
+          PT: 'Alinhar o Comitê sobre o status do país e solicitações.',
+          EN: 'Align the Committee on country status and requests.',
+        } as Entry,
+      },
+      {
+        id: 'commercial-sync',
+        name: 'Commercial Sync',
+        lane: 'nmm',
+        participants: {
+          ES: 'A definir con cada Planning Partner',
+          PT: 'A definir com cada Planning Partner',
+          EN: 'To be reviewed with each Planning Partner',
+        } as Entry,
+        content: [
+          { ES: 'FCAs propuestas para OKRs amarillo/rojo', PT: 'FCAs propostas para OKRs amarelo/vermelho', EN: 'FCAs proposed for OKRs yellow/red' } as Entry,
+          { ES: 'Actualizaciones de estado de contexto y progreso', PT: 'Atualizações de status de contexto e progresso', EN: 'Context status and progress updates' } as Entry,
+        ],
+        details: {
+          ES: 'Frecuencia a definir con cada Planning Partner.',
+          PT: 'Frequência a definir com cada Planning Partner.',
+          EN: 'Frequency to be reviewed with each Planning Partner.',
+        } as Entry,
+      },
+      {
+        id: 'strategic-tribe-sync',
+        name: 'Strategic Tribe Sync + Slack',
+        lane: 'tribe',
+        participants: {
+          ES: 'Tribe Leaders + Strategic Objectives Owners',
+          PT: 'Tribe Leaders + Strategic Objectives Owners',
+          EN: 'Tribe Leaders + Strategic Objectives Owners',
+        } as Entry,
+        content: [
+          { ES: 'Revisión de OKRs', PT: 'Revisão de OKRs', EN: 'OKRs review' } as Entry,
+          { ES: 'FCAs propuestas para OKRs amarillo/rojo', PT: 'FCAs propostas para OKRs amarelo/vermelho', EN: 'FCAs proposed for OKRs yellow/red' } as Entry,
+        ],
+        details: {
+          ES: 'Slack: el contenido se comparte a través del canal de la Tribu, {link}.',
+          PT: 'Slack: o conteúdo é compartilhado através do canal da Tribo, {link}.',
+          EN: 'Slack: content is shared via the Tribe channel, {link}.',
+        } as Entry,
+      },
+      {
+        id: 'tribe-team-sync',
+        name: 'Tribe Team Sync',
+        lane: 'tribe',
+        participants: {
+          ES: 'Todos los miembros de la Tribu',
+          PT: 'Todos os membros da Tribo',
+          EN: 'All Tribe members',
+        } as Entry,
+        content: [
+          { ES: 'Revisión de OKRs', PT: 'Revisão de OKRs', EN: 'OKRs review' } as Entry,
+          { ES: 'Actualizaciones relevantes de Squads', PT: 'Atualizações relevantes dos Squads', EN: 'Relevant Squad updates' } as Entry,
+          { ES: 'Revisión de FCAs cuando aplique', PT: 'Revisão de FCAs quando aplicável', EN: 'FCAs review when applicable' } as Entry,
+        ],
+        details: {
+          ES: 'Sincronización interna mensual con todos los miembros de la Tribu, liderada por Tribe Leaders y Squad Leaders.',
+          PT: 'Sincronização interna mensal com todos os membros da Tribo, liderada por Tribe Leaders e Squad Leaders.',
+          EN: 'Monthly internal sync with all Tribe members, led by Tribe Leaders and Squad Leaders.',
+        } as Entry,
+      },
+      {
+        id: 'planning',
+        name: 'Planning',
+        lane: 'squad',
+        participants: {
+          ES: 'Squad Lead y miembros del Squad',
+          PT: 'Squad Lead e membros do Squad',
+          EN: 'Squad Lead and squad members',
+        } as Entry,
+        content: [
+          { ES: 'Definición de alcance y prioridades del working cycle', PT: 'Definição de escopo e prioridades do working cycle', EN: 'Scope and priorities for the working cycle' } as Entry,
+          { ES: 'Estimación técnica y chequeo de capacidad', PT: 'Estimativa técnica e checagem de capacidade', EN: 'Technical estimation and capacity check' } as Entry,
+        ],
+        details: {
+          ES: 'Da inicio a cada working cycle: el squad se alinea sobre qué va a entregar y se compromete con un alcance.',
+          PT: 'Dá início a cada working cycle: o squad se alinha sobre o que vai entregar e se compromete com um escopo.',
+          EN: 'Kicks off each working cycle: the squad aligns on what it will deliver and commits to a scope.',
+        } as Entry,
+      },
+      {
+        id: 'daily-weekly',
+        name: 'Daily/Weekly',
+        lane: 'squad',
+        participants: {
+          ES: 'Squad',
+          PT: 'Squad',
+          EN: 'Squad',
+        } as Entry,
+        content: [
+          { ES: 'Actualización de progreso', PT: 'Atualização de progresso', EN: 'Progress update' } as Entry,
+          { ES: 'Bloqueos y dependencias', PT: 'Bloqueios e dependências', EN: 'Blockers and dependencies' } as Entry,
+        ],
+        details: {
+          ES: 'Sincronización corta para mantener al squad alineado día a día (o semana a semana) y detectar bloqueos temprano.',
+          PT: 'Sincronização curta para manter o squad alinhado dia a dia (ou semana a semana) e detectar bloqueios cedo.',
+          EN: 'Short sync to keep the squad aligned day-to-day (or week-to-week) and surface blockers early.',
+        } as Entry,
+      },
+      {
+        id: 'review-demo',
+        name: 'Review + Demo',
+        lane: 'squad',
+        participants: {
+          ES: 'Squad + stakeholders',
+          PT: 'Squad + stakeholders',
+          EN: 'Squad + stakeholders',
+        } as Entry,
+        content: [
+          { ES: 'Demo del trabajo completado', PT: 'Demo do trabalho concluído', EN: 'Demo of completed work' } as Entry,
+          { ES: 'Feedback de stakeholders', PT: 'Feedback dos stakeholders', EN: 'Feedback from stakeholders' } as Entry,
+        ],
+        details: {
+          ES: 'Cierra el working cycle mostrando lo entregado y recogiendo feedback para ajustar el rumbo.',
+          PT: 'Encerra o working cycle mostrando o que foi entregue e coletando feedback para ajustar o rumo.',
+          EN: 'Closes the working cycle by showing what was delivered and gathering feedback to adjust direction.',
+        } as Entry,
+      },
+      {
+        id: 'retro',
+        name: 'Retro (ad-hoc)',
+        lane: 'squad',
+        participants: {
+          ES: 'Squad',
+          PT: 'Squad',
+          EN: 'Squad',
+        } as Entry,
+        content: [
+          { ES: 'Qué funcionó bien', PT: 'O que funcionou bem', EN: 'What went well' } as Entry,
+          { ES: 'Qué mejorar', PT: 'O que melhorar', EN: 'What to improve' } as Entry,
+          { ES: 'Acciones concretas', PT: 'Ações concretas', EN: 'Action items' } as Entry,
+        ],
+        details: {
+          ES: 'Espacio de mejora continua, sin cadencia fija, para reflexionar sobre cómo está trabajando el squad.',
+          PT: 'Espaço de melhoria contínua, sem cadência fixa, para refletir sobre como o squad está trabalhando.',
+          EN: 'Continuous-improvement space, held as needed rather than on a fixed cadence, to reflect on how the squad is working.',
+        } as Entry,
+      },
+    ],
+  },
   learning: {
     subtitle: {
       ES: 'Conceptos fundamentales del Way of Working, rutas de aprendizaje y canales de comunicación.',
@@ -98,7 +279,35 @@ export const translations = {
     tabs: {
       glosario: { ES: 'Glosario', PT: 'Glossário', EN: 'Glossary' } as Entry,
       learningPath: { ES: 'Learning Path', PT: 'Learning Path', EN: 'Learning Path' } as Entry,
+      nmm: { ES: 'NMM', PT: 'NMM', EN: 'NMM' } as Entry,
       slackChannels: { ES: 'Slack Channels', PT: 'Slack Channels', EN: 'Slack Channels' } as Entry,
+    },
+    nmm: {
+      heading: {
+        ES: 'New Management Model (NMM)',
+        PT: 'New Management Model (NMM)',
+        EN: 'New Management Model (NMM)',
+      } as Entry,
+      intro: {
+        ES: 'El NMM es un modelo de gestión cross-company impulsado por Planning, que define cómo nos organizamos para tomar decisiones, hacer seguimiento y responder a desvíos.',
+        PT: 'O NMM é um modelo de gestão cross-company impulsionado por Planning, que define como nos organizamos para tomar decisões, fazer o acompanhamento e responder a desvios.',
+        EN: 'NMM is a cross-company management model driven by Planning that defines how we organize to make decisions, follow up, and respond to deviations.',
+      } as Entry,
+      summary: {
+        ES: 'Este modelo nos va a ayudar a llegar a nuestro Big Dream, ayudándonos a mantenernos enfocados, actuar más rápido y apuntar más alto.',
+        PT: 'Este modelo vai nos ajudar a chegar ao nosso Big Dream, nos ajudando a ficar focados, agir mais rápido e mirar mais alto.',
+        EN: 'This Model will help us get to our Big Dream, helping us stay focused, act faster, and aim higher.',
+      } as Entry,
+      ctaLabel: {
+        ES: 'Ver presentación de Planning',
+        PT: 'Ver apresentação de Planning',
+        EN: 'View the Planning presentation',
+      } as Entry,
+      contact: {
+        ES: 'Si querés saber más, contactá al Planning Partner de tu Tribu.',
+        PT: 'Se quiser saber mais, entre em contato com o Planning Partner da sua Tribo.',
+        EN: 'If you want to know more, reach out to your Tribe’s Planning Partner.',
+      } as Entry,
     },
     glossary: {
       waterfallTitle: { ES: 'Waterfall', PT: 'Waterfall', EN: 'Waterfall' } as Entry,

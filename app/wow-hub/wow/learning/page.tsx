@@ -5,11 +5,14 @@ import { useLang } from '@/lib/i18n/LangContext'
 import { translations } from '@/lib/i18n/translations'
 
 const DEGREED_URL = 'https://eu.degreed.com/pathway/59y2yd349o/pathway?newWindow=true'
+const NMM_PRESENTATION_URL =
+  'https://docs.google.com/presentation/d/1pVlSkvyrhmYW8rmTNEmQn_6zhNDzY8-aHfx8OuKUPbw/edit?slide=id.g38509652aba_0_1241#slide=id.g38509652aba_0_1241'
 
 export default function LearningPage() {
   const { lang, t } = useLang()
   const g = translations.learning.glossary
   const lp = translations.learning.learningPath
+  const nmm = translations.learning.nmm
   const sc = translations.learning.slackChannels
 
   const tabs = [
@@ -74,6 +77,28 @@ export default function LearningPage() {
               </div>
             ))}
           </div>
+        </div>
+      ),
+    },
+    {
+      id: 'nmm',
+      label: t('learning.tabs.nmm'),
+      content: (
+        <div className="space-y-6">
+          <p className="text-wow-muted">{nmm.intro[lang]}</p>
+          <a
+            href={NMM_PRESENTATION_URL}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="block border border-wow-line rounded-lg p-8 hover:border-wow-purple hover:shadow-wow transition-all bg-gradient-to-br from-wow-purple-deep to-wow-purple text-white"
+          >
+            <h3 className="text-xl font-bold mb-4">{nmm.heading[lang]}</h3>
+            <p className="text-white/90 italic mb-6">“{nmm.summary[lang]}”</p>
+            <span className="inline-flex items-center gap-2 bg-wow-gold text-wow-ink px-5 py-2 rounded font-bold">
+              {nmm.ctaLabel[lang]} →
+            </span>
+          </a>
+          <p className="text-sm text-wow-muted">{nmm.contact[lang]}</p>
         </div>
       ),
     },
