@@ -113,6 +113,12 @@ export const translations = {
       PT: 'lista completa de canais',
       EN: 'complete channels list',
     } as Entry,
+    weekLabel: { ES: 'S', PT: 'S', EN: 'W' } as Entry,
+    adHocNote: {
+      ES: '* Retro (ad-hoc): sin semana fija, se agenda según necesidad del squad.',
+      PT: '* Retro (ad-hoc): sem semana fixa, é agendada conforme a necessidade do squad.',
+      EN: '* Retro (ad-hoc): no fixed week — scheduled whenever the squad needs it.',
+    } as Entry,
     items: [
       {
         id: 'committee-mrm',
