@@ -57,11 +57,11 @@ html.dark .text-wow-ink {
 /* Sidebar, breadcrumb, and cards keep a white surface in dark mode —
    restore normal ink/muted text color inside them instead of white-on-white. */
 html.dark .bg-white .text-wow-ink {
-  @apply text-wow-ink;
+  color: #171321;
 }
 
 html.dark .bg-white .text-wow-muted {
-  @apply text-wow-muted;
+  color: #6f6a7c;
 }
 
 a {
