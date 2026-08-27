@@ -10,12 +10,17 @@
     "test": "vitest",
     "test:ui": "vitest --ui",
     "test:coverage": "vitest --coverage",
-    "type-check": "tsc --noEmit"
+    "type-check": "tsc --noEmit",
+    "db:migrate": "prisma migrate deploy",
+    "db:push": "prisma db push",
+    "db:studio": "prisma studio",
+    "db:seed": "node scripts/sync-audit-log.ts"
   },
   "dependencies": {
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
-    "next": "^14.0.0"
+    "next": "^14.0.0",
+    "@prisma/client": "^5.0.0"
   },
   "devDependencies": {
     "typescript": "^5.0.0",
@@ -34,6 +39,8 @@
     "@testing-library/jest-dom": "^6.1.5",
     "@vitejs/plugin-react": "^4.2.0",
     "jsdom": "^22.1.0",
-    "@vitest/coverage-v8": "^1.0.0"
+    "@vitest/coverage-v8": "^1.0.0",
+    "prisma": "^5.0.0",
+    "ts-node": "^10.9.0"
   }
 }

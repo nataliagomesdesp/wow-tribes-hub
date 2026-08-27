@@ -1,12 +1,13 @@
 'use client'
 
-import { useState, useEffect } from 'react'
+import { useState } from 'react'
 import Link from 'next/link'
 import { useRouter, usePathname } from 'next/navigation'
+import { LangProvider, useLang } from '@/lib/i18n/LangContext'
 
 const menuItems = [
   { group: 'WOW GENERAL', items: [
-    { icon: '📽️', label: 'Historia', href: '/wow-hub/wow/historia' },
+    { icon: '📽️', labelKey: 'common.menu.historia', href: '/wow-hub/wow/historia' },
     { icon: '⚙️', label: 'Onboarding', href: '/wow-hub/wow/onboarding' },
     { icon: '📚', label: 'Learning', href: '/wow-hub/wow/learning' },
     { icon: '👥', label: 'Tribes & Squads', href: '/wow-hub/wow/tribes-squads' },
@@ -15,9 +16,10 @@ const menuItems = [
     { icon: '🛠️', label: 'Jira', href: '/wow-hub/wow/jira' },
     { icon: '🙋', label: 'FAQs', href: '/wow-hub/wow/faqs' },
     { icon: '💬', label: 'WoW Connects', href: '/wow-hub/wow/wowconnects' },
+    { icon: '📋', labelKey: 'common.menu.auditoria', href: '/wow-hub/wow/auditoria' },
   ]},
-  { group: 'PRODUCTO', items: [
-    { icon: '📦', label: 'Hub de Producto', href: '/wow-hub/wow/producto' },
+  { group: 'PRODUCTO', groupKey: 'common.menu.productoGroup', items: [
+    { icon: '📦', labelKey: 'common.menu.hubProducto', href: '/wow-hub/wow/producto' },
   ]},
   { group: 'TRIBOS', items: [
     { icon: '👥', label: 'Tribes & Squads', href: '/wow-hub/tribos' },
@@ -29,21 +31,23 @@ export default function HubLayout({
 }: {
   children: React.ReactNode
 }) {
+  return (
+    <LangProvider>
+      <HubLayoutInner>{children}</HubLayoutInner>
+    </LangProvider>
+  )
+}
+
+function HubLayoutInner({
+  children,
+}: {
+  children: React.ReactNode
+}) {
   const router = useRouter()
   const pathname = usePathname()
-  const [lang, setLang] = useState<'ES' | 'PT' | 'EN'>('ES')
+  const { lang, setLang: handleLanguageChange, t } = useLang()
   const [searchQuery, setSearchQuery] = useState('')
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
-
-  useEffect(() => {
-    const savedLang = localStorage.getItem('wow-hub-lang') as 'ES' | 'PT' | 'EN' || 'ES'
-    setLang(savedLang)
-  }, [])
-
-  const handleLanguageChange = (newLang: 'ES' | 'PT' | 'EN') => {
-    setLang(newLang)
-    localStorage.setItem('wow-hub-lang', newLang)
-  }
 
   const handleSearch = (e: React.FormEvent) => {
     e.preventDefault()
@@ -56,16 +60,15 @@ export default function HubLayout({
     const parts = pathname.split('/').filter(Boolean)
     if (parts.length >= 3) {
       const section = parts[2]
-      const label = menuItems
-        .flatMap(g => g.items)
-        .find(item => item.href.includes(section))?.label || section
+      const matchedItem = menuItems.flatMap(g => g.items).find(item => item.href.includes(section))
+      const label = (matchedItem && 'labelKey' in matchedItem ? t(matchedItem.labelKey) : matchedItem?.label) || section
       return (
         <>
           <button onClick={() => router.push('/wow-hub')} className="text-wow-purple font-semibold hover:underline">
             WoW Hub
           </button>
           <span> › </span>
-          <span className="text-wow-purple font-semibold">WoW General</span>
+          <span className="text-wow-purple font-semibold">WoW {t('common.breadcrumbGeneral')}</span>
           <span> › </span>
           <span className="text-wow-ink font-semibold">{label}</span>
         </>
@@ -89,7 +92,7 @@ export default function HubLayout({
           <form onSubmit={handleSearch} className="flex-1 max-w-xs hidden sm:block">
             <input
               type="search"
-              placeholder="Buscar..."
+              placeholder={t('common.search')}
               value={searchQuery}
               onChange={(e) => setSearchQuery(e.target.value)}
               className="w-full px-4 py-2 rounded text-white placeholder:text-white/65 bg-white/15 text-sm outline-none"
@@ -144,7 +147,7 @@ export default function HubLayout({
           {menuItems.map((group) => (
             <div key={group.group}>
               <div className="text-xs font-black uppercase tracking-wider text-wow-muted px-3 py-4">
-                {group.group}
+                {'groupKey' in group ? t(group.groupKey) : group.group}
               </div>
               <div className="space-y-1">
                 {group.items.map((item) => {
@@ -160,7 +163,7 @@ export default function HubLayout({
                       }`}
                     >
                       <span>{item.icon}</span>
-                      <span>{item.label}</span>
+                      <span>{'labelKey' in item ? t(item.labelKey) : item.label}</span>
                     </Link>
                   )
                 })}
@@ -175,7 +178,7 @@ export default function HubLayout({
             {menuItems.map((group) => (
               <div key={group.group}>
                 <div className="text-xs font-black uppercase tracking-wider text-wow-muted px-3 py-4">
-                  {group.group}
+                  {'groupKey' in group ? t(group.groupKey) : group.group}
                 </div>
                 <div className="space-y-1">
                   {group.items.map((item) => {
@@ -192,7 +195,7 @@ export default function HubLayout({
                         }`}
                       >
                         <span>{item.icon}</span>
-                        <span>{item.label}</span>
+                        <span>{'labelKey' in item ? t(item.labelKey) : item.label}</span>
                       </Link>
                     )
                   })}

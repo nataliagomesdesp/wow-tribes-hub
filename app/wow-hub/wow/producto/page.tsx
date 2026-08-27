@@ -1,4 +1,5 @@
 import Tabs from '@/components/Tabs'
+import AuditLog from '@/components/AuditLog'
 
 const PRODUCTO_TABS = [
   {
@@ -158,6 +159,16 @@ const PRODUCTO_TABS = [
           ))}
         </div>
       </div>
+    ),
+  },
+  {
+    id: 'auditoria',
+    label: 'Auditoria',
+    content: (
+      <AuditLog
+        limit={20}
+        title="Controle de Alterações - Hub de Producto"
+      />
     ),
   },
   {

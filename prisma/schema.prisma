@@ -1,0 +1,31 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model AuditLog {
+  id        String   @id @default(cuid())
+  author    String   // "Natalia Gomes"
+  email     String?  // "natalia.gomes@github.com"
+  date      DateTime // timestamp do commit
+  message   String   // commit message
+  section   String   // "onboarding", "okrs", "producto", etc
+  repo      String   // "nataliagomesdesp/wow-tribes-hub"
+  commitHash String?  // GitHub commit hash (abc123...)
+  commitUrl String?   // Link to GitHub commit
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  @@index([date])
+  @@index([section])
+  @@index([repo])
+  @@index([author])
+}

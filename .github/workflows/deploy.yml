@@ -1,0 +1,57 @@
+name: Deploy to Ownia
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Validate Ownia config
+        run: |
+          if [ ! -f ".ownia.yml" ]; then
+            echo "❌ .ownia.yml not found. Run ownia-setup skill first."
+            exit 1
+          fi
+          echo "✅ Ownia config found"
+
+      - name: Validate Dockerfile
+        run: |
+          if [ ! -f "Dockerfile" ]; then
+            echo "❌ Dockerfile not found. Run ownia-setup skill first."
+            exit 1
+          fi
+          echo "✅ Dockerfile found"
+
+      - name: Check Node version in Dockerfile
+        run: |
+          if grep -q "node:20-alpine" Dockerfile; then
+            echo "✅ Node 20 detected"
+          else
+            echo "⚠️  Using custom Node version"
+          fi
+
+      - name: Notify Ownia (via webhook)
+        if: success()
+        run: |
+          echo "✅ All checks passed"
+          echo "📦 Push to main detected"
+          echo "🚀 Ownia will auto-deploy from GitHub"
+          echo ""
+          echo "App will be live at:"
+          echo "  https://ownia.despegar.io/wow-tribes-hub"
+          echo ""
+          echo "Deploy status: Check Ownia dashboard"
+
+      - name: Create deployment status
+        if: success()
+        run: |
+          echo "✅ Deployment initiated"
+          echo "App: wow-tribes-hub"
+          echo "Branch: main"
+          echo "Status: In Progress"

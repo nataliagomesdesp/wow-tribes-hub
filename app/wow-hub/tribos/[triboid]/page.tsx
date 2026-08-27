@@ -1,4 +1,5 @@
 import Tabs from '@/components/Tabs'
+import AuditLog from '@/components/AuditLog'
 import Link from 'next/link'
 
 const TRIBE_DETAILS: Record<string, any> = {
@@ -212,6 +213,16 @@ export default function TribeDetailPage({ params }: PageProps) {
             ))}
           </div>
         </div>
+      ),
+    },
+    {
+      id: 'auditoria',
+      label: 'Auditoria',
+      content: (
+        <AuditLog
+          limit={20}
+          title={`Controle de Alterações - ${tribe.name}`}
+        />
       ),
     },
     {

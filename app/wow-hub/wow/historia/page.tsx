@@ -1,36 +1,61 @@
+'use client'
+
+import { useRef, useState } from 'react'
+import { useLang } from '@/lib/i18n/LangContext'
+import { translations } from '@/lib/i18n/translations'
+
 export default function Historia() {
+  const { lang, t } = useLang()
+  const videoRef = useRef<HTMLVideoElement>(null)
+  const [playing, setPlaying] = useState(false)
+
+  const handlePlay = () => {
+    videoRef.current?.play()
+    setPlaying(true)
+  }
+
   return (
     <div>
       <div className="mb-4">
         <p className="text-xs font-black uppercase tracking-widest text-wow-purple mb-2">
           WOW GENERAL
         </p>
-        <h2 className="text-3xl font-black mb-2">📽️ Nuestra Historia</h2>
-        <p className="text-wow-muted">
-          El origen y evolución del Way of Working en Despegar.
-        </p>
+        <h2 className="text-3xl font-black mb-2">📽️ {t('historia.title')}</h2>
+        <p className="text-wow-muted">{t('historia.subtitle')}</p>
       </div>
 
       {/* VIDEO PLAYER */}
-      <div className="bg-wow-ink rounded-lg aspect-video max-w-2xl mb-12 flex items-center justify-center relative overflow-hidden">
-        <div className="absolute inset-0 bg-gradient-to-br from-wow-purple-deep to-wow-purple opacity-80" />
-        <button className="relative z-10 w-20 h-20 bg-wow-gold rounded-full flex items-center justify-center hover:scale-110 transition">
-          <span className="text-2xl ml-1">▶</span>
-        </button>
-        <div className="absolute bottom-4 left-4 text-white font-semibold text-sm z-10">
-          Introducción al WoW · 8 min
-        </div>
+      <div className="bg-wow-ink rounded-lg aspect-video max-w-2xl mb-12 relative overflow-hidden">
+        <video
+          ref={videoRef}
+          src="/videos/intro-wow.mp4"
+          controls={playing}
+          onPause={() => setPlaying(false)}
+          onEnded={() => setPlaying(false)}
+          className="w-full h-full object-contain bg-wow-ink"
+        />
+        {!playing && (
+          <button
+            onClick={handlePlay}
+            className="absolute inset-0 flex items-center justify-center w-full h-full"
+            aria-label="Play"
+          >
+            <div className="absolute inset-0 bg-gradient-to-br from-wow-purple-deep to-wow-purple opacity-80" />
+            <span className="relative z-10 w-20 h-20 bg-wow-gold rounded-full flex items-center justify-center hover:scale-110 transition">
+              <span className="text-2xl ml-1">▶</span>
+            </span>
+            <div className="absolute bottom-4 left-4 text-white font-semibold text-sm z-10">
+              {t('historia.videoCaption')}
+            </div>
+          </button>
+        )}
       </div>
 
       {/* TIMELINE */}
       <div className="mb-12">
-        <h3 className="text-xl font-bold mb-6 text-wow-ink">Evolución 2024 - 2026</h3>
+        <h3 className="text-xl font-bold mb-6 text-wow-ink">{t('historia.timelineTitle')}</h3>
         <div className="space-y-6">
-          {[
-            { year: '2024', title: 'Primer Piloto', desc: 'Iniciamos el framework con Growth y Flights' },
-            { year: '2025', title: 'Adopción Gradual', desc: 'Todos los tribes se unen al WoW' },
-            { year: '2026', title: 'Consolidación', desc: 'WoW es nuestra forma de trabajar' },
-          ].map((item) => (
+          {translations.historia.timeline.map((item) => (
             <div key={item.year} className="flex gap-6 items-start">
               <div className="flex flex-col items-center">
                 <div className="w-4 h-4 rounded-full bg-wow-purple" />
@@ -38,8 +63,8 @@ export default function Historia() {
               </div>
               <div>
                 <div className="font-black text-wow-purple">{item.year}</div>
-                <div className="font-bold text-wow-ink">{item.title}</div>
-                <div className="text-sm text-wow-muted">{item.desc}</div>
+                <div className="font-bold text-wow-ink">{item.title[lang]}</div>
+                <div className="text-sm text-wow-muted">{item.desc[lang]}</div>
               </div>
             </div>
           ))}
@@ -49,9 +74,9 @@ export default function Historia() {
       {/* 3 CARDS: TRY, LEARN, REPEAT */}
       <div className="grid grid-cols-3 gap-6">
         {[
-          { title: 'TRY', desc: 'Experimenta nuevas ideas constantemente' },
-          { title: 'LEARN', desc: 'Aprende de los resultados y fracasos' },
-          { title: 'REPEAT', desc: 'Repite el ciclo mejorando cada vez' },
+          { title: 'TRY', desc: translations.historia.cards.try[lang] },
+          { title: 'LEARN', desc: translations.historia.cards.learn[lang] },
+          { title: 'REPEAT', desc: translations.historia.cards.repeat[lang] },
         ].map((item) => (
           <div
             key={item.title}
