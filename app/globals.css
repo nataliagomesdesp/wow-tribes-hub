@@ -50,6 +50,10 @@ html.dark .text-wow-muted {
   @apply text-wow-surface/60;
 }
 
+html.dark .text-wow-ink {
+  @apply text-wow-surface;
+}
+
 a {
   color: inherit;
   text-decoration: none;

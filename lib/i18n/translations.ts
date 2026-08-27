@@ -32,33 +32,31 @@ export const translations = {
     } as Entry,
     timeline: [
       {
-        year: '2024',
-        title: { ES: 'Primer Piloto', PT: 'Primeiro Piloto', EN: 'First Pilot' } as Entry,
-        desc: {
-          ES: 'Iniciamos el framework con Growth y Flights',
-          PT: 'Iniciamos o framework com Growth e Flights',
-          EN: 'We started the framework with Growth and Flights',
-        } as Entry,
+        year: 'Q4 2024',
+        title: { ES: 'Piloto ONA', PT: 'Piloto ONA', EN: 'ONA Pilot' } as Entry,
       },
       {
-        year: '2025',
-        title: { ES: 'Adopción Gradual', PT: 'Adoção Gradual', EN: 'Gradual Adoption' } as Entry,
-        desc: {
-          ES: 'Todos los tribes se unen al WoW',
-          PT: 'Todas as tribes se juntam ao WoW',
-          EN: 'All tribes join the WoW',
-        } as Entry,
+        year: 'Q1/Q2 2025',
+        title: { ES: 'Definición WoW', PT: 'Definição WoW', EN: 'WoW Definition' } as Entry,
+      },
+      {
+        year: 'Q3/2025',
+        title: { ES: 'Wave I', PT: 'Wave I', EN: 'Wave I' } as Entry,
+      },
+      {
+        year: 'Q4/2026',
+        title: { ES: 'Wave II', PT: 'Wave II', EN: 'Wave II' } as Entry,
       },
       {
         year: '2026',
-        title: { ES: 'Consolidación', PT: 'Consolidação', EN: 'Consolidation' } as Entry,
-        desc: {
-          ES: 'WoW es nuestra forma de trabajar',
-          PT: 'WoW é a nossa forma de trabalhar',
-          EN: 'WoW is our way of working',
-        } as Entry,
+        title: { ES: '21 tribes*', PT: '21 tribes*', EN: '21 tribes*' } as Entry,
       },
     ],
+    timelineFootnote: {
+      ES: '(*) Incluye Product, UX, IT, Business Partners + Key Contributors',
+      PT: '(*) Inclui Product, UX, IT, Business Partners + Key Contributors',
+      EN: '(*) Including Product, UX, IT, Business Partners + Key Contributors',
+    } as Entry,
     cards: {
       try: {
         ES: 'Experimenta nuevas ideas constantemente',

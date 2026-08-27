@@ -64,11 +64,11 @@ export default function Historia() {
               <div>
                 <div className="font-black text-wow-purple">{item.year}</div>
                 <div className="font-bold text-wow-ink">{item.title[lang]}</div>
-                <div className="text-sm text-wow-muted">{item.desc[lang]}</div>
               </div>
             </div>
           ))}
         </div>
+        <p className="text-xs text-wow-muted mt-2">{t('historia.timelineFootnote')}</p>
       </div>
 
       {/* 3 CARDS: TRY, LEARN, REPEAT */}
