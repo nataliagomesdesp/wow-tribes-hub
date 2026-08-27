@@ -19,7 +19,7 @@ const ALL_FAQS = [
         id: 'onb-2',
         question: '¿Dónde debo comenzar como nuevo joiner?',
         answer:
-          'Comienza en la sección Onboarding de WoW Hub. Te guiará a través de: Historia de Despegar, Learning Paths, Estructura de Tribos, y procesos de Jira. Tu squad lead te asignará un mentor también.',
+          'Comienza en las secciones Historia y Learning de WoW Hub. Te guiarán a través de: Historia de Despegar, Glosario, Learning Path, Estructura de Tribos, y procesos de Jira. Tu squad lead te asignará un mentor también.',
       },
       {
         id: 'onb-3',

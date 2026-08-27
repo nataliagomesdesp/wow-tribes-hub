@@ -8,7 +8,6 @@ import { LangProvider, useLang } from '@/lib/i18n/LangContext'
 const menuItems = [
   { group: 'WOW GENERAL', items: [
     { icon: '📽️', labelKey: 'common.menu.historia', href: '/wow-hub/wow/historia' },
-    { icon: '⚙️', label: 'Onboarding', href: '/wow-hub/wow/onboarding' },
     { icon: '📚', label: 'Learning', href: '/wow-hub/wow/learning' },
     { icon: '👥', label: 'Tribes & Squads', href: '/wow-hub/wow/tribes-squads' },
     { icon: '🎯', label: 'OKRs', href: '/wow-hub/wow/okrs' },

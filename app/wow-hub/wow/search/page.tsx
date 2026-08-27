@@ -40,18 +40,18 @@ const SEARCH_DATA = [
   {
     id: 'learning-1',
     type: 'Path',
-    title: 'New Joiner Path',
-    excerpt: 'Introducción completa al WoW, estructura organizacional y primeros pasos. Duración: 2 semanas.',
-    section: 'Learning Paths',
+    title: 'Learning Path: Way of Working | Beginner',
+    excerpt: 'Curso introductorio sobre nuestro Way of Working, disponible en Degreed (Prosus Academy).',
+    section: 'Learning',
     href: '/wow-hub/wow/learning',
   },
   {
     id: 'onb-1',
     type: 'Resource',
     title: 'Glosario de Términos',
-    excerpt: 'Aprende conceptos fundamentales: Squad, Tribu, OKR, FCA, Waterfall y más.',
-    section: 'Onboarding',
-    href: '/wow-hub/wow/onboarding',
+    excerpt: 'Aprende conceptos fundamentales: Squad, Tribu, OKR, Sponsors, Business Partner, Key Contributor, DELY y más.',
+    section: 'Learning',
+    href: '/wow-hub/wow/learning',
   },
 ]
 

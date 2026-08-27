@@ -6,8 +6,7 @@ import { useRouter } from 'next/navigation'
 
 const wowSections = [
   { icon: '📽️', label: 'Historia', href: '/wow-hub/wow/historia' },
-  { icon: '⚙️', label: 'Onboarding', href: '/wow-hub/wow/onboarding' },
-  { icon: '📚', label: 'Learning Paths', href: '/wow-hub/wow/learning' },
+  { icon: '📚', label: 'Learning', href: '/wow-hub/wow/learning' },
   { icon: '👥', label: 'Tribes & Squads', href: '/wow-hub/wow/tribes-squads' },
   { icon: '🎯', label: 'OKRs', href: '/wow-hub/wow/okrs' },
   { icon: '📋', label: 'Ceremonies', href: '/wow-hub/wow/ceremonies' },
