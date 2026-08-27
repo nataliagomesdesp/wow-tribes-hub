@@ -75,6 +75,20 @@ export const translations = {
       } as Entry,
     },
   },
+  okrs: {
+    title: { ES: 'OKRs & FCAs', PT: 'OKRs & FCAs', EN: 'OKRs & FCAs' } as Entry,
+    hubName: { ES: 'WoW OKR HUB', PT: 'WoW OKR HUB', EN: 'WoW OKR HUB' } as Entry,
+    description: {
+      ES: 'Todo lo que necesitás para crear, seguir y mejorar los OKRs de tu Tribu y tus Squads.',
+      PT: 'Tudo o que você precisa para criar, acompanhar e melhorar os OKRs da sua Tribo e dos seus Squads.',
+      EN: 'Everything you need to create, track, and improve your Tribe’s and Squads’ OKRs.',
+    } as Entry,
+    ctaLabel: {
+      ES: 'Ir a WoW OKR HUB',
+      PT: 'Ir para o WoW OKR HUB',
+      EN: 'Go to WoW OKR HUB',
+    } as Entry,
+  },
   learning: {
     subtitle: {
       ES: 'Conceptos fundamentales del Way of Working, rutas de aprendizaje y canales de comunicación.',

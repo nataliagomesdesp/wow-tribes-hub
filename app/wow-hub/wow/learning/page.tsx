@@ -14,6 +14,29 @@ export default function LearningPage() {
 
   const tabs = [
     {
+      id: 'learning-path',
+      label: t('learning.tabs.learningPath'),
+      content: (
+        <div className="space-y-6">
+          <p className="text-wow-muted">{lp.intro[lang]}</p>
+          <a
+            href={DEGREED_URL}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="block border border-wow-line rounded-lg p-8 hover:border-wow-purple hover:shadow-wow transition-all bg-gradient-to-br from-wow-purple-deep to-wow-purple text-white"
+          >
+            <div className="text-xs uppercase tracking-widest text-wow-gold font-black mb-2">Prosus Academy</div>
+            <h3 className="text-xl font-bold mb-2">{lp.beginnerTitle[lang]}</h3>
+            <p className="text-white/80 mb-6">{lp.beginnerDesc[lang]}</p>
+            <span className="inline-flex items-center gap-2 bg-wow-gold text-wow-ink px-5 py-2 rounded font-bold">
+              {lp.ctaLabel[lang]} →
+            </span>
+          </a>
+          <p className="text-sm text-wow-muted italic">{lp.comingSoon[lang]}</p>
+        </div>
+      ),
+    },
+    {
       id: 'glosario',
       label: t('learning.tabs.glosario'),
       content: (
@@ -51,29 +74,6 @@ export default function LearningPage() {
               </div>
             ))}
           </div>
-        </div>
-      ),
-    },
-    {
-      id: 'learning-path',
-      label: t('learning.tabs.learningPath'),
-      content: (
-        <div className="space-y-6">
-          <p className="text-wow-muted">{lp.intro[lang]}</p>
-          <a
-            href={DEGREED_URL}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="block border border-wow-line rounded-lg p-8 hover:border-wow-purple hover:shadow-wow transition-all bg-gradient-to-br from-wow-purple-deep to-wow-purple text-white"
-          >
-            <div className="text-xs uppercase tracking-widest text-wow-gold font-black mb-2">Prosus Academy</div>
-            <h3 className="text-xl font-bold mb-2">{lp.beginnerTitle[lang]}</h3>
-            <p className="text-white/80 mb-6">{lp.beginnerDesc[lang]}</p>
-            <span className="inline-flex items-center gap-2 bg-wow-gold text-wow-ink px-5 py-2 rounded font-bold">
-              {lp.ctaLabel[lang]} →
-            </span>
-          </a>
-          <p className="text-sm text-wow-muted italic">{lp.comingSoon[lang]}</p>
         </div>
       ),
     },
