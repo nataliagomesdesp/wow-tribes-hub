@@ -5,15 +5,15 @@ import Link from 'next/link'
 import { useRouter } from 'next/navigation'
 
 const wowSections = [
-  { icon: '📽️', label: 'Historia' },
-  { icon: '⚙️', label: 'Onboarding' },
-  { icon: '📚', label: 'Learning Paths' },
-  { icon: '👥', label: 'Tribes & Squads' },
-  { icon: '🎯', label: 'OKRs' },
-  { icon: '📋', label: 'Ceremonies' },
-  { icon: '🛠️', label: 'Jira' },
-  { icon: '🙋', label: 'FAQs' },
-  { icon: '💬', label: 'WoW Connects' },
+  { icon: '📽️', label: 'Historia', href: '/wow-hub/wow/historia' },
+  { icon: '⚙️', label: 'Onboarding', href: '/wow-hub/wow/onboarding' },
+  { icon: '📚', label: 'Learning Paths', href: '/wow-hub/wow/learning' },
+  { icon: '👥', label: 'Tribes & Squads', href: '/wow-hub/wow/tribes-squads' },
+  { icon: '🎯', label: 'OKRs', href: '/wow-hub/wow/okrs' },
+  { icon: '📋', label: 'Ceremonies', href: '/wow-hub/wow/ceremonies' },
+  { icon: '🛠️', label: 'Jira', href: '/wow-hub/wow/jira' },
+  { icon: '🙋', label: 'FAQs', href: '/wow-hub/wow/faqs' },
+  { icon: '💬', label: 'WoW Connects', href: '/wow-hub/wow/wowconnects' },
 ]
 
 const tribes = [
@@ -40,7 +40,7 @@ export default function Home() {
   return (
     <div className="min-h-screen bg-wow-surface-soft">
       {/* HEADER */}
-      <header className="sticky top-0 z-100 bg-wow-purple shadow-lg">
+      <header className="sticky top-0 z-50 bg-wow-purple shadow-lg">
         <div className="max-w-6xl mx-auto px-8 h-16 flex items-center justify-between">
           <button
             onClick={() => router.push('/wow-hub')}
@@ -98,22 +98,24 @@ export default function Home() {
       <section className="max-w-6xl mx-auto px-8 py-16">
         <div className="grid grid-cols-3 gap-6">
           {/* WOW GENERAL CARD */}
-          <Link href="/wow-hub/wow/historia">
-            <div className="bg-white border-2 border-wow-lilac rounded-xl p-7 cursor-pointer hover:border-wow-purple hover:shadow-wow transition-all animate-fadeUp">
-              <p className="text-xs font-black uppercase tracking-wider text-wow-purple mb-2">
-                WOW GENERAL
-              </p>
-              <h2 className="text-xl font-black mb-4">WoW General</h2>
-              <div className="space-y-2">
-                {wowSections.map((sec) => (
-                  <div key={sec.label} className="flex items-center gap-2 text-sm text-wow-muted">
-                    <span>{sec.icon}</span>
-                    <span>{sec.label}</span>
-                  </div>
-                ))}
-              </div>
+          <div className="bg-white border-2 border-wow-lilac rounded-xl p-7 hover:border-wow-purple hover:shadow-wow transition-all animate-fadeUp">
+            <p className="text-xs font-black uppercase tracking-wider text-wow-purple mb-2">
+              WOW GENERAL
+            </p>
+            <h2 className="text-xl font-black mb-4">WoW General</h2>
+            <div className="space-y-2">
+              {wowSections.map((sec) => (
+                <Link
+                  key={sec.label}
+                  href={sec.href}
+                  className="flex items-center gap-2 text-sm text-wow-muted hover:text-wow-purple transition"
+                >
+                  <span>{sec.icon}</span>
+                  <span>{sec.label}</span>
+                </Link>
+              ))}
             </div>
-          </Link>
+          </div>
 
           {/* TRIBOS CARD */}
           <div className="bg-white border-2 border-wow-lilac rounded-xl p-7 hover:border-wow-purple hover:shadow-wow transition-all animate-fadeUp animation-delay-200">

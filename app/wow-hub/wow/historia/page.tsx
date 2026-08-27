@@ -77,11 +77,13 @@ export default function Historia() {
       <div className="mb-12">
         <h3 className="text-xl font-bold mb-6 text-wow-ink">{t('historia.timelineTitle')}</h3>
         <div className="overflow-x-auto pb-2">
-          <div className="relative flex justify-between min-w-[640px] pt-6">
-            <div className="absolute top-[34px] left-0 right-0 h-0.5 bg-wow-line" />
+          <div className="relative flex justify-between min-w-[640px]">
+            <div className="absolute top-[32px] left-[10%] right-[10%] h-0.5 bg-wow-line overflow-hidden rounded-full">
+              <div className="timeline-flow h-full w-1/6 bg-gradient-to-r from-transparent via-wow-gold to-transparent" />
+            </div>
             {translations.historia.timeline.map((item) => (
               <div key={item.year} className="relative flex flex-col items-center text-center px-2 flex-1">
-                <div className="font-black text-wow-purple text-xs whitespace-nowrap mb-2">{item.year}</div>
+                <div className="h-4 flex items-center font-black text-wow-purple text-xs whitespace-nowrap mb-2">{item.year}</div>
                 <div className="w-4 h-4 rounded-full bg-wow-purple relative z-10" />
                 <div className="font-bold text-wow-ink text-sm mt-3 max-w-[120px]">{item.title[lang]}</div>
               </div>
